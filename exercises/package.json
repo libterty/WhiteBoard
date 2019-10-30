@@ -1,0 +1,17 @@
+{
+    "name": "dev",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest --watchAll"
+    },
+    "jest": {
+        "testEnvironment": "node"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "jest": "^24.9.0"
+    }
+}
