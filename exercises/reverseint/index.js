@@ -16,11 +16,26 @@
 function reverseInt(n) {
     let reverse = n.toString().split('')
 
-    if (reverse[0] === "-") {
+    if (n < 0) {
         let tmp = reverse.splice(0, 1).join('');
         return Number(tmp + reverse.filter(item => item !== "0").reverse().join(''))
     } else {
         return Number(reverse.filter(item => item !== "0").reverse().join(''))
+    }
+}
+
+// solution 2
+// first handle int to string than to reverse array then back to string
+// second check origin n is less or greater than 0
+// return int
+
+function reverseInt(n) {
+    const reverse = n.toString().split('').reverse().join('');
+
+    if (n < 0) {
+        return parseInt(reverse) * -1;
+    } else {
+        return parseInt(reverse)
     }
 }
 
