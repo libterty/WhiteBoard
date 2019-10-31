@@ -37,6 +37,8 @@ function reverseInt(n) {
     } else {
         return parseInt(reverse)
     }
+
+    // return parseInt(reverse) * Math.sign(n);
 }
 
 module.exports = reverseInt;
