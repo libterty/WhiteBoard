@@ -1,3 +1,5 @@
+'use strict'
+
 // --- Directions
 // Implement a Queue datastructure using two stacks.
 // *Do not* create an array inside of the 'Queue' class.
@@ -13,7 +15,45 @@
 //     q.remove(); // returns 2
 
 const Stack = require('./stack');
+const s = new Stack();
+class Queue {
+    constructor() {
+        this.first = new Stack();
+        this.second = new Stack();
+    }
 
-class Queue {}
+    add(r) {
+        this.first.push(r);
+    }
+
+    remove() {
+        while (this.first.peek()) {
+            const data = this.first.pop();
+            this.second.push(data);
+        }
+
+        const record = this.second.pop();
+
+        while (this.second.peek()) {
+            this.first.push(this.second.pop());
+        }
+
+        return record;
+    }
+
+    peek() {
+        while (this.first.peek()) {
+            this.second.push(this.first.pop());
+        }
+
+        const record = this.second.peek();
+
+        while (this.second.peek()) {
+            this.first.push(this.second.pop());
+        }
+
+        return record;
+    }
+}
 
 module.exports = Queue;
