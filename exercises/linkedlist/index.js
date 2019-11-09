@@ -169,7 +169,8 @@ class LinkedList {
         }
     }
 
-    *[Symbol.iterator]() {
+    *
+    [Symbol.iterator]() {
         let node = this.head;
         while (node) {
             yield node;
